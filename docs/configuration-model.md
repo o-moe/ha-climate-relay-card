@@ -3,7 +3,7 @@
 ## Minimal configuration
 
 ```yaml
-type: custom:ha-climate-relay-card
+type: custom:area-heating-card
 name: Living Room
 climate_entity: climate.living_room
 ```
@@ -11,7 +11,7 @@ climate_entity: climate.living_room
 ## Recommended configuration
 
 ```yaml
-type: custom:ha-climate-relay-card
+type: custom:area-heating-card
 name: Living Room
 climate_entity: climate.living_room
 humidity_entity: sensor.living_room_humidity
@@ -21,7 +21,7 @@ window_entity: binary_sensor.living_room_window
 ## Extended configuration draft
 
 ```yaml
-type: custom:ha-climate-relay-card
+type: custom:area-heating-card
 name: Living Room
 climate_entity: climate.living_room
 humidity_entity: sensor.living_room_humidity
@@ -38,8 +38,8 @@ show_state_text: true
 | Field | Required | Type | Default | Purpose |
 |---|---:|---|---|---|
 | `type` | yes | string | none | Home Assistant custom card type. |
-| `name` | no | string | entity friendly name | User-facing room name. |
-| `climate_entity` | yes | entity id | none | Climate entity for the room. |
+| `name` | no | string | entity friendly name | User-facing area or room name. |
+| `climate_entity` | yes | entity id | none | Climate entity for the area. |
 | `humidity_entity` | no | entity id | none | Humidity sensor entity. |
 | `window_entity` | no | entity id | none | Window/contact sensor entity. |
 | `layout` | no | `compact` / `expanded` | `compact` | Visual density. |
@@ -47,6 +47,16 @@ show_state_text: true
 | `show_humidity` | no | boolean | auto | Whether humidity is displayed. |
 | `show_window` | no | boolean | auto | Whether window state is displayed. |
 | `show_state_text` | no | boolean | `true` | Whether state text is displayed. |
+
+## Naming decision
+
+The public Home Assistant card type is:
+
+```yaml
+type: custom:area-heating-card
+```
+
+The product remains a room-first heating UX, but the public YAML API uses Home Assistant's idiomatic area terminology.
 
 ## Validation rules
 
