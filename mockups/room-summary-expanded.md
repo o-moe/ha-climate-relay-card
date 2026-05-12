@@ -1,8 +1,10 @@
-# Mockup Specification: Room Summary Expanded
+# Mockup Specification: Area Interaction Surface Expanded
 
 ## Purpose
 
-The expanded room summary is a richer single-room card for dashboards with more space.
+The expanded area interaction surface is used after the user clicks or taps the compact card.
+
+It is the place where target-temperature controls may appear.
 
 ## Layout intent
 
@@ -20,13 +22,13 @@ The expanded room summary is a richer single-room card for dashboards with more 
 │ Humidity 48 %             Window closed      │
 │ Last updated 2 min ago                       │
 │                                              │
-│ [Open details]                               │
+│ [Open native details]                        │
 └──────────────────────────────────────────────┘
 ```
 
-## Required elements
+## Required elements if implemented as a custom surface
 
-- Room name
+- Area or room name
 - Explicit state text
 - Current temperature
 - Target temperature
@@ -34,15 +36,20 @@ The expanded room summary is a richer single-room card for dashboards with more 
 - Optional humidity indicator
 - Optional window indicator
 - Optional last-updated text
-- Detail action
+- Optional native detail action
 
 ## Interaction
 
-Service semantics must be identical to compact mode.
+- Decrease button lowers target temperature by the effective step size.
+- Increase button raises target temperature by the effective step size.
+- Service semantics must be explicit and must use Home Assistant services.
+- The first implementation may use Home Assistant's native more-info dialog instead of a custom expanded surface.
 
 ## Acceptance criteria
 
-- Expanded mode adds information without changing behavior.
-- The target control remains the primary interactive element.
-- The card remains readable in a two-column dashboard.
+- The compact first view remains glance-focused and does not show direct +/- controls.
+- Target controls are available only after click/tap interaction.
+- Expanded mode adds interaction without changing hidden automation behavior.
+- The target control is the primary interactive element on the expanded surface.
+- The card remains readable in a two-column dashboard if rendered inline.
 - State text remains visible when state color is present.
