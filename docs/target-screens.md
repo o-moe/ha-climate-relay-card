@@ -1,29 +1,42 @@
 # Target Screens
 
-## 1. Room Summary Card — Compact
+## 1. Area Summary Card — Compact
 
 ### Purpose
 
-Primary dashboard card for one room.
+Primary dashboard glance surface for one Home Assistant area or room.
+
+The compact card is intentionally not a mini thermostat. It shows the relevant heating state and temperatures without exposing direct target-temperature controls on the first view.
 
 ### Required content
 
-- Room name
+- Area or room name
 - Current temperature
 - Target temperature
 - Heating state indicator
 - Optional humidity indicator
 - Optional window indicator
-- Increase/decrease target temperature controls
-- Detail action
+
+### Explicitly excluded from the first view
+
+- Increase target temperature control
+- Decrease target temperature control
+- Preset controls
+- Schedule controls
 
 ### Visual hierarchy
 
-1. Room name
+1. Area or room name
 2. Current temperature
 3. Target temperature and state
 4. Secondary indicators
-5. Controls
+5. Interaction affordance through card tap/click
+
+### Primary interaction
+
+Clicking or tapping the compact card opens the next interaction surface.
+
+The first implementation may use Home Assistant's native more-info dialog for this interaction surface. A later custom expanded interaction surface is allowed only if it is justified by a concrete UX need.
 
 ### Background state semantics
 
@@ -45,48 +58,58 @@ The exact color values are implementation details and must remain theme-aware.
 - Yellow, green, and gray background states follow the documented semantics.
 - State is not communicated by color alone.
 - Missing optional humidity or window entities do not leave visual gaps.
+- No direct target-temperature +/- controls are rendered on the compact first view.
+- The compact card is clickable/tappable as the entry point to more detailed interaction.
 - The card remains usable at narrow mobile widths.
 
-## 2. Room Summary Card — Expanded
+## 2. Area Interaction Surface — Expanded
 
 ### Purpose
 
-A richer single-room card for dashboards with more space.
+A richer interaction surface for changing the target temperature after the user clicks or taps the compact card.
 
-### Required content
+This can initially be implemented by opening Home Assistant's native more-info dialog for the configured `climate_entity`.
+
+A custom expanded interaction surface may be implemented later if the native more-info dialog does not satisfy the desired heating UX.
+
+### Required content if implemented as a custom surface
 
 Everything from compact mode, plus:
 
 - Larger target control area
+- Increase target temperature control
+- Decrease target temperature control
 - More explicit state text
 - Optional last-updated information
 - Optional preset display if exposed by the climate entity
 
 ### Acceptance criteria
 
-- Expanded mode adds information but does not change service semantics.
+- The first compact view remains glance-focused and does not expose +/- controls.
+- Target-temperature controls are available only after the user enters the interaction surface.
 - Expanded mode uses the same yellow, green, and gray background semantics as compact mode.
-- Expanded mode remains readable in a two-column dashboard.
+- Expanded mode remains readable in a two-column dashboard if rendered inline.
 - Controls remain accessible via keyboard and pointer input.
 
 ## 3. Native More-info Detail Flow
 
 ### Purpose
 
-Secondary interaction surface for less frequent controls and diagnostics.
+Initial secondary interaction surface for target-temperature changes, less frequent controls, and diagnostics.
 
 ### Initial approach
 
-Use Home Assistant's native more-info dialog for the configured `climate_entity`.
+Clicking or tapping the compact card opens Home Assistant's native more-info dialog for the configured `climate_entity`.
 
 ### Rationale
 
-Native more-info avoids duplicating Home Assistant climate behavior and reduces maintenance risk.
+Native more-info avoids duplicating Home Assistant climate behavior and reduces maintenance risk. It also keeps the first dashboard view visually clean.
 
 ### Acceptance criteria
 
-- The detail action opens the relevant Home Assistant more-info dialog.
-- The default card remains usable without a custom detail implementation.
+- Clicking or tapping the compact card opens the relevant Home Assistant more-info dialog.
+- The compact card remains usable without custom detail implementation.
+- Direct +/- controls are not rendered on the compact first view.
 
 ## 4. Error / Configuration Problem State
 
@@ -118,6 +141,7 @@ Avoid layout jumps before Home Assistant state is available.
 
 - The card shows a stable placeholder while state is not yet available.
 - The placeholder does not expose misleading temperature values.
+- The card does not open an invalid interaction surface before the required climate entity state is known.
 
 ## 6. Window-open State
 
