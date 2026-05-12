@@ -29,23 +29,39 @@ The card translates Home Assistant state into user-facing heating states:
 - Unavailable
 - Unknown
 
-## 5. Respect Home Assistant semantics
+## 5. Use semantic card background colors
+
+The card background color is a primary state cue.
+
+The first visual state model uses these semantics:
+
+| Background | Meaning |
+|---|---|
+| Yellow | The room is actively heating. |
+| Green | The thermostat is active but currently not heating. |
+| Gray | The thermostat is off, in frost protection, unavailable, or otherwise not actively controlling comfort temperature. |
+
+The exact color tokens must be theme-aware and must not copy manufacturer-specific colors or trade dress.
+
+State color must always be paired with visible state text. The UI must not communicate state by color alone.
+
+## 6. Respect Home Assistant semantics
 
 The card must call standard Home Assistant services. It must not create hidden frontend state that conflicts with Home Assistant.
 
-## 6. Fail visibly and safely
+## 7. Fail visibly and safely
 
 Invalid configuration, missing entities, unsupported climate modes, unavailable entities, and failed service calls must produce explicit feedback.
 
-## 7. Responsive by default
+## 8. Responsive by default
 
 The card must work on mobile-first dashboard layouts and scale cleanly to tablet and desktop grid layouts.
 
-## 8. Theme-aware visual design
+## 9. Theme-aware visual design
 
 The card must respect Home Assistant theme variables where practical and must not depend on an external theme.
 
-## 9. Accessibility is not optional
+## 10. Accessibility is not optional
 
 The UI must not communicate state by color alone.
 
@@ -56,7 +72,7 @@ Required accessibility properties:
 - State text exists when color is used as a state cue.
 - Keyboard activation works for interactive controls.
 
-## 10. No manufacturer trade dress
+## 11. No manufacturer trade dress
 
 The card may use general UX patterns such as:
 
