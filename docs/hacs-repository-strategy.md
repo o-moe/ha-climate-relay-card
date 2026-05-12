@@ -11,13 +11,13 @@ The implementation phase must produce a compiled JavaScript module in `dist/` th
 Planned artifact:
 
 ```text
-dist/ha-climate-relay-card.js
+dist/area-heating-card.js
 ```
 
 ## Planned card type
 
 ```yaml
-type: custom:ha-climate-relay-card
+type: custom:area-heating-card
 ```
 
 ## Repository language policy
@@ -86,6 +86,16 @@ The implementation should keep these concerns separate:
 - Service orchestration
 - Rendering
 - Styling
+
+## Naming stance
+
+The repository keeps the project-oriented name `ha-climate-relay-card`.
+
+The public card type uses Home Assistant's area terminology:
+
+```yaml
+type: custom:area-heating-card
+```
 
 ## HACS compatibility expectations
 
