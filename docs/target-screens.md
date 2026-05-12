@@ -25,11 +25,24 @@ Primary dashboard card for one room.
 4. Secondary indicators
 5. Controls
 
+### Background state semantics
+
+The card background communicates the dominant thermostat state:
+
+| Background | User-facing meaning | Typical Home Assistant source state |
+|---|---|---|
+| Yellow | Heating | Climate entity is actively heating. |
+| Green | Not heating | Climate entity is active but currently idle/not heating. |
+| Gray | Off or frost protection | Climate entity is off, in frost protection, unavailable, or not controlling comfort temperature. |
+
+The exact color values are implementation details and must remain theme-aware.
+
 ### Acceptance criteria
 
 - The current temperature is visible without opening details.
 - The target temperature is visible without opening details.
 - Heating, idle, off, unavailable, and window-open states are distinguishable.
+- Yellow, green, and gray background states follow the documented semantics.
 - State is not communicated by color alone.
 - Missing optional humidity or window entities do not leave visual gaps.
 - The card remains usable at narrow mobile widths.
@@ -52,6 +65,7 @@ Everything from compact mode, plus:
 ### Acceptance criteria
 
 - Expanded mode adds information but does not change service semantics.
+- Expanded mode uses the same yellow, green, and gray background semantics as compact mode.
 - Expanded mode remains readable in a two-column dashboard.
 - Controls remain accessible via keyboard and pointer input.
 
@@ -119,8 +133,19 @@ The card displays a clear window-open state if `window_entity` is configured and
 
 The card does not automatically change the target temperature, HVAC mode, or schedule when a window is open.
 
+### Background interaction
+
+Window-open state is an overlay/status condition, not a replacement for the thermostat background semantics.
+
+Example:
+
+- Heating with open window still uses the heating background but must show a prominent window-open warning.
+- Idle with open window still uses the idle background but must show a prominent window-open warning.
+- Off/frost protection with open window still uses the gray background and the window-open warning.
+
 ### Acceptance criteria
 
 - Window-open state is visible on the card.
+- Window-open state does not hide the underlying thermostat state.
 - The UI does not imply that the card has changed backend heating behavior.
 - Any future blocking or pausing behavior must be implemented via explicit Home Assistant automation or backend support, not hidden frontend logic.
