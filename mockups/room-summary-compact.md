@@ -18,8 +18,6 @@ It is intentionally not a mini thermostat. Direct target-temperature controls ar
 │ Target 22.0 °C                     │
 │                                    │
 │ Humidity 48 %       Window closed  │
-│                                    │
-│ Tap to adjust                      │
 └────────────────────────────────────┘
 ```
 
@@ -31,7 +29,6 @@ It is intentionally not a mini thermostat. Direct target-temperature controls ar
 - Target temperature
 - Optional humidity indicator
 - Optional window indicator
-- Subtle interaction affordance
 
 ## Explicitly excluded elements
 
@@ -39,10 +36,12 @@ It is intentionally not a mini thermostat. Direct target-temperature controls ar
 - Increase button
 - Preset controls
 - Schedule controls
+- Explicit tap/click instruction text
 
 ## Interaction
 
 - Clicking or tapping the card opens the next interaction surface.
+- The card should feel clickable through normal card affordance, cursor/focus behavior, and Home Assistant interaction conventions rather than explicit instruction text.
 - The first implementation may open Home Assistant's native more-info dialog for the configured climate entity.
 - A custom expanded interaction surface may be introduced later if native more-info is not good enough for the target UX.
 
@@ -52,5 +51,6 @@ It is intentionally not a mini thermostat. Direct target-temperature controls ar
 - Heating state is visible as text.
 - Optional indicators disappear cleanly when no entity is configured.
 - No direct +/- controls are rendered on the compact first view.
+- No explicit tap/click instruction text is rendered on the compact first view.
 - The card itself is clickable/tappable as the entry point to adjustment.
 - The card remains readable in a narrow mobile column.
