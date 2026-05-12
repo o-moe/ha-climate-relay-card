@@ -5,12 +5,12 @@
   --text-secondary: rgba(23, 23, 23, 0.68);
   --surface-border: rgba(23, 23, 23, 0.1);
   --shadow-soft: 0 18px 45px rgba(15, 15, 15, 0.14);
-
   --state-heating-background: #f2c15f;
   --state-idle-background: #8bb970;
   --state-off-background: #d7d3ca;
-
   --on-state: #171717;
+  --chip-background: rgba(255, 255, 255, 0.22);
+  --chip-border: rgba(23, 23, 23, 0.12);
   --warning-background: rgba(88, 39, 19, 0.16);
   --warning-border: rgba(88, 39, 19, 0.28);
 }
@@ -103,7 +103,7 @@ h3 {
 }
 
 .heating-card {
-  min-height: 226px;
+  min-height: 252px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -146,7 +146,6 @@ h3 {
 }
 
 .card-topline,
-.card-footer,
 .detail-meta,
 .detail-header {
   display: flex;
@@ -156,46 +155,67 @@ h3 {
 }
 
 .state-label,
-.window-chip,
-.detail-badge {
+.detail-badge,
+.metric-chip {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
+  min-height: 30px;
+  border: 1px solid var(--chip-border);
   border-radius: 999px;
-  padding: 5px 10px;
-  background: rgba(255, 255, 255, 0.22);
+  padding: 6px 11px;
+  background: var(--chip-background);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 750;
   white-space: nowrap;
 }
 
-.window-chip--warning {
-  border: 1px solid var(--warning-border);
+.metric-chip {
+  gap: 6px;
+}
+
+.metric-chip--warning {
+  border-color: var(--warning-border);
   background: var(--warning-background);
+}
+
+.metric-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
 }
 
 .temperature-block {
   display: grid;
-  gap: 6px;
+  justify-items: center;
+  gap: 8px;
+  padding: 12px 0 4px;
+  text-align: center;
 }
 
 .current-temperature {
-  font-size: clamp(3.4rem, 7vw, 4.6rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.08em;
+  font-size: clamp(4.8rem, 10vw, 6.4rem);
+  font-weight: 850;
+  line-height: 0.82;
+  letter-spacing: -0.095em;
 }
 
 .area-name {
-  font-size: 1.1rem;
-  font-weight: 750;
-  letter-spacing: -0.03em;
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
 }
 
-.card-footer {
+.target-line {
   color: rgba(23, 23, 23, 0.72);
-  font-size: 0.88rem;
-  font-weight: 650;
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+
+.card-metrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .detail-surface {
@@ -295,7 +315,7 @@ h3 {
   }
 
   .heating-card {
-    min-height: 210px;
+    min-height: 236px;
   }
 
   .detail-surface {
