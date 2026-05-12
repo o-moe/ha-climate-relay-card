@@ -1,0 +1,313 @@
+:root {
+  color-scheme: light dark;
+  --page-background: #f4f1ec;
+  --text-primary: #171717;
+  --text-secondary: rgba(23, 23, 23, 0.68);
+  --surface-border: rgba(23, 23, 23, 0.1);
+  --shadow-soft: 0 18px 45px rgba(15, 15, 15, 0.14);
+
+  --state-heating-background: #f2c15f;
+  --state-idle-background: #8bb970;
+  --state-off-background: #d7d3ca;
+
+  --on-state: #171717;
+  --warning-background: rgba(88, 39, 19, 0.16);
+  --warning-border: rgba(88, 39, 19, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 28rem), var(--page-background);
+  color: var(--text-primary);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+article {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.page-header {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 14px;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.intro,
+.section-heading p:not(.eyebrow) {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.review-section + .review-section {
+  margin-top: 64px;
+}
+
+.section-heading {
+  max-width: 780px;
+  margin-bottom: 22px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.heating-card {
+  min-height: 226px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 32px;
+  padding: 20px;
+  color: var(--on-state);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  outline: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+}
+
+.heating-card:hover,
+.heating-card:focus-visible {
+  transform: translateY(-2px);
+  filter: saturate(1.04);
+  box-shadow: 0 24px 60px rgba(15, 15, 15, 0.18);
+}
+
+.heating-card:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.42);
+  outline-offset: 4px;
+}
+
+.heating-card--heating {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.2), transparent 42%), var(--state-heating-background);
+}
+
+.heating-card--idle {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.2), transparent 42%), var(--state-idle-background);
+}
+
+.heating-card--off {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.32), transparent 42%), var(--state-off-background);
+}
+
+.card-topline,
+.card-footer,
+.detail-meta,
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.state-label,
+.window-chip,
+.detail-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.window-chip--warning {
+  border: 1px solid var(--warning-border);
+  background: var(--warning-background);
+}
+
+.temperature-block {
+  display: grid;
+  gap: 6px;
+}
+
+.current-temperature {
+  font-size: clamp(3.4rem, 7vw, 4.6rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.area-name {
+  font-size: 1.1rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.card-footer {
+  color: rgba(23, 23, 23, 0.72);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.detail-surface {
+  max-width: 720px;
+  border: 1px solid var(--surface-border);
+  border-radius: 36px;
+  padding: 28px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.25), transparent 42%), var(--state-heating-background);
+  box-shadow: var(--shadow-soft);
+}
+
+.detail-header {
+  margin-bottom: 36px;
+}
+
+.detail-temperature-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 28px;
+}
+
+.detail-label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(23, 23, 23, 0.65);
+  font-size: 0.86rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.detail-current {
+  display: block;
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 850;
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.target-control {
+  display: grid;
+  grid-template-columns: 56px auto 56px;
+  align-items: center;
+  gap: 14px;
+  border-radius: 999px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.target-control button {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  color: var(--on-state);
+  cursor: pointer;
+}
+
+.target-control button:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.42);
+  outline-offset: 3px;
+}
+
+.detail-meta {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  color: rgba(23, 23, 23, 0.72);
+  font-weight: 700;
+}
+
+.detail-meta span {
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 20px, 520px);
+    padding-top: 28px;
+  }
+
+  .card-grid,
+  .detail-temperature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .heating-card {
+    min-height: 210px;
+  }
+
+  .detail-surface {
+    padding: 22px;
+  }
+
+  .target-control {
+    grid-template-columns: 52px auto 52px;
+  }
+
+  .target-control button {
+    width: 52px;
+    height: 52px;
+  }
+}
