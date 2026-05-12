@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Area Heating Card Mockups</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <p class="eyebrow">HA Climate Relay Card</p>
+        <h1>Area Heating Card Mockups</h1>
+        <p class="intro">
+          Static HTML mockups for reviewing the room-first heating UX before any Home Assistant Custom Card implementation starts.
+        </p>
+      </header>
+
+      <section class="review-section" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <p class="eyebrow">Compact overview</p>
+          <h2 id="overview-title">Glance-first dashboard cards</h2>
+          <p>
+            The compact card is a clickable overview surface. It shows state, current temperature, target temperature, humidity, and window state. It does not expose direct +/- controls.
+          </p>
+        </div>
+
+        <div class="card-grid" aria-label="Compact area heating card examples">
+          <article class="heating-card heating-card--heating" tabindex="0" aria-label="Living Room heating, current temperature 21.4 degrees, target 22 degrees">
+            <div class="card-topline">
+              <span class="state-label">Heating</span>
+              <span class="window-chip">Closed</span>
+            </div>
+            <div class="temperature-block">
+              <span class="current-temperature">21.4°</span>
+              <span class="area-name">Living Room</span>
+            </div>
+            <div class="card-footer">
+              <span>Target 22.0°</span>
+              <span>48% humidity</span>
+            </div>
+          </article>
+
+          <article class="heating-card heating-card--idle" tabindex="0" aria-label="Bedroom not heating, current temperature 18.2 degrees, target 18 degrees">
+            <div class="card-topline">
+              <span class="state-label">Not heating</span>
+              <span class="window-chip">Closed</span>
+            </div>
+            <div class="temperature-block">
+              <span class="current-temperature">18.2°</span>
+              <span class="area-name">Bedroom</span>
+            </div>
+            <div class="card-footer">
+              <span>Target 18.0°</span>
+              <span>51% humidity</span>
+            </div>
+          </article>
+
+          <article class="heating-card heating-card--off" tabindex="0" aria-label="Guest Room off, current temperature 16.8 degrees, frost protection active">
+            <div class="card-topline">
+              <span class="state-label">Frost protection</span>
+              <span class="window-chip">Closed</span>
+            </div>
+            <div class="temperature-block">
+              <span class="current-temperature">16.8°</span>
+              <span class="area-name">Guest Room</span>
+            </div>
+            <div class="card-footer">
+              <span>Off</span>
+              <span>46% humidity</span>
+            </div>
+          </article>
+
+          <article class="heating-card heating-card--heating heating-card--window-open" tabindex="0" aria-label="Bathroom heating with open window, current temperature 22.1 degrees, target 23 degrees">
+            <div class="card-topline">
+              <span class="state-label">Heating</span>
+              <span class="window-chip window-chip--warning">Window open</span>
+            </div>
+            <div class="temperature-block">
+              <span class="current-temperature">22.1°</span>
+              <span class="area-name">Bathroom</span>
+            </div>
+            <div class="card-footer">
+              <span>Target 23.0°</span>
+              <span>57% humidity</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="review-section" aria-labelledby="interaction-title">
+        <div class="section-heading">
+          <p class="eyebrow">After click / tap</p>
+          <h2 id="interaction-title">Interaction surface concept</h2>
+          <p>
+            The first implementation may open the native Home Assistant more-info dialog. This static concept shows the kind of custom interaction surface that could be justified later.
+          </p>
+        </div>
+
+        <article class="detail-surface" aria-label="Expanded interaction concept for Living Room">
+          <div class="detail-header">
+            <div>
+              <p class="eyebrow">Living Room</p>
+              <h3>Heating</h3>
+            </div>
+            <span class="detail-badge">Target reachable</span>
+          </div>
+
+          <div class="detail-temperature-row">
+            <div>
+              <span class="detail-label">Current</span>
+              <span class="detail-current">21.4°</span>
+            </div>
+            <div class="target-control" aria-label="Target temperature control concept">
+              <button type="button" aria-label="Decrease target temperature">−</button>
+              <span>22.0°</span>
+              <button type="button" aria-label="Increase target temperature">+</button>
+            </div>
+          </div>
+
+          <div class="detail-meta">
+            <span>48% humidity</span>
+            <span>Window closed</span>
+            <span>Updated now</span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./mockup.js" type="module"></script>
+  </body>
+</html>
