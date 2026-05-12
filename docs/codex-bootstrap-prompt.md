@@ -6,10 +6,13 @@ Use this prompt only after the product direction, target screens, configuration 
 You are working on a new Home Assistant HACS dashboard/plugin Custom Card repository.
 
 Repository goal:
-Create a high-quality room-first heating Custom Card for Home Assistant.
+Create a high-quality room-first heating Custom Card for Home Assistant areas.
 
 Strategic context:
 The previous backend integration approach is frozen. The Custom Card is the leading product artifact. Do not create or depend on a backend integration unless explicitly instructed later.
+
+Public card type:
+Use custom:area-heating-card.
 
 Strict constraints:
 - No manufacturer app clone.
@@ -23,13 +26,14 @@ Strict constraints:
 - Build a HACS-compatible dashboard/plugin repository.
 
 Initial card scope:
-The card controls one room per card instance using existing Home Assistant entities:
+The card controls one Home Assistant area or room per card instance using existing Home Assistant entities:
 - Required: climate_entity
 - Optional: humidity_entity
 - Optional: window_entity
 
 Primary UX:
 - Room-first.
+- Area-compatible Home Assistant terminology.
 - Temperature-first.
 - Clear heating, idle, off, window-open, unavailable, and unknown states.
 - Minimal daily-use controls.
@@ -44,7 +48,7 @@ Required first implementation deliverables:
 6. ESLint and Prettier setup.
 7. GitHub Actions CI.
 8. Documentation skeleton preservation.
-9. Minimal Custom Card registration.
+9. Minimal Custom Card registration using custom:area-heating-card.
 
 Quality gates:
 - Type check.
