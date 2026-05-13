@@ -163,7 +163,6 @@ h3 {
 }
 
 .state-label,
-.detail-badge,
 .metric-chip {
   display: inline-flex;
   align-items: center;
@@ -184,10 +183,6 @@ h3 {
 .metric-chip--warning {
   border-color: var(--warning-border);
   background: var(--warning-background);
-}
-
-.metric-chip--secondary {
-  color: rgba(23, 23, 23, 0.62);
 }
 
 .metric-icon {
@@ -224,10 +219,14 @@ h3 {
 }
 
 .card-metrics {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
+}
+
+.end-state-glance {
+  justify-self: center;
 }
 
 .detail-surface {
@@ -299,15 +298,132 @@ h3 {
 }
 
 .detail-meta {
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 32px;
   color: rgba(23, 23, 23, 0.72);
   font-weight: 700;
 }
 
+.detail-metrics,
+.temperature-end-state-row,
+.flow-end-state-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.temperature-end-state-row {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.end-state-chip {
+  min-height: 34px;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: 999px;
+  padding: 7px 13px;
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(23, 23, 23, 0.56);
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.end-state-chip--active {
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--on-state);
+  border-color: rgba(23, 23, 23, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.flow-note {
+  margin: 0 0 10px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.flow-card {
+  border: 1px solid var(--surface-border);
+  border-radius: 32px;
+  padding: 22px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.25), transparent 42%), var(--state-heating-background);
+  box-shadow: var(--shadow-soft);
+}
+
+.flow-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.flow-card-title {
+  margin: 0 0 5px;
+  font-size: 1.35rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.flow-card-state {
+  margin: 0;
+  color: rgba(23, 23, 23, 0.62);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.flow-target {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  margin: 22px 0 24px;
+}
+
+.flow-target-label {
+  color: rgba(23, 23, 23, 0.62);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.flow-target-control {
+  display: grid;
+  grid-template-columns: 44px auto 44px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 999px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 1.65rem;
+  font-weight: 850;
+}
+
+.flow-target-control button {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  color: var(--on-state);
+}
+
+.flow-end-state-row {
+  justify-content: flex-end;
+}
+
 @media (max-width: 900px) {
-  .card-grid {
+  .card-grid,
+  .flow-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -319,6 +435,7 @@ h3 {
   }
 
   .card-grid,
+  .flow-grid,
   .detail-temperature-row {
     grid-template-columns: 1fr;
   }
