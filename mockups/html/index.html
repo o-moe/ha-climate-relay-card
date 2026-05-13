@@ -21,149 +21,79 @@
           <p class="eyebrow">Compact overview</p>
           <h2 id="overview-title">Glance-first dashboard cards</h2>
           <p>
-            The compact card is a clickable overview surface. It shows state, current temperature, target temperature, humidity, and window state. It does not expose direct +/- controls.
+            The compact card is a clickable overview surface. It shows thermostat state, current temperature, target temperature, humidity, window state, and a coarse Auto/Manual indicator. It does not expose direct +/- controls.
           </p>
         </div>
 
         <div class="card-grid" aria-label="Compact area heating card examples">
-          <article class="heating-card heating-card--heating" tabindex="0" aria-label="Living Room heating, current temperature 21.4 degrees, target 22 degrees, humidity 48 percent, windows closed">
-            <div class="card-topline">
-              <span class="state-label">Heating</span>
-            </div>
-            <div class="temperature-block">
-              <span class="area-name">Living Room</span>
-              <span class="current-temperature">21.4°</span>
-              <span class="target-line">Target 22.0°</span>
-            </div>
+          <article class="heating-card heating-card--heating" tabindex="0" aria-label="Living Room heating, current temperature 21.4 degrees, target 22 degrees, humidity 48 percent, auto, windows closed">
+            <div class="card-topline"><span class="state-label">Heating</span></div>
+            <div class="temperature-block"><span class="area-name">Living Room</span><span class="current-temperature">21.4°</span><span class="target-line">Target 22.0°</span></div>
             <div class="card-metrics">
-              <span class="metric-chip" aria-label="Humidity 48 percent">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>
-                48%
-              </span>
-              <span class="metric-chip" aria-label="Windows closed">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>
-                Closed
-              </span>
+              <span class="metric-chip" aria-label="Humidity 48 percent"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>48%</span>
+              <span class="metric-chip end-state-glance" aria-label="Temperature follows automatic schedule">Auto</span>
+              <span class="metric-chip" aria-label="Windows closed"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>Closed</span>
             </div>
           </article>
 
-          <article class="heating-card heating-card--idle" tabindex="0" aria-label="Bedroom idle, current temperature 18.2 degrees, target 18 degrees, humidity 51 percent, windows closed">
-            <div class="card-topline">
-              <span class="state-label">Idle</span>
-            </div>
-            <div class="temperature-block">
-              <span class="area-name">Bedroom</span>
-              <span class="current-temperature">18.2°</span>
-              <span class="target-line">Target 18.0°</span>
-            </div>
+          <article class="heating-card heating-card--idle" tabindex="0" aria-label="Bedroom idle, current temperature 18.2 degrees, target 18 degrees, humidity 51 percent, auto, windows closed">
+            <div class="card-topline"><span class="state-label">Idle</span></div>
+            <div class="temperature-block"><span class="area-name">Bedroom</span><span class="current-temperature">18.2°</span><span class="target-line">Target 18.0°</span></div>
             <div class="card-metrics">
-              <span class="metric-chip" aria-label="Humidity 51 percent">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>
-                51%
-              </span>
-              <span class="metric-chip" aria-label="Windows closed">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>
-                Closed
-              </span>
+              <span class="metric-chip" aria-label="Humidity 51 percent"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>51%</span>
+              <span class="metric-chip end-state-glance" aria-label="Temperature follows automatic schedule">Auto</span>
+              <span class="metric-chip" aria-label="Windows closed"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>Closed</span>
             </div>
           </article>
 
-          <article class="heating-card heating-card--off" tabindex="0" aria-label="Guest Room frost protection, current temperature 16.8 degrees, humidity 46 percent, windows closed">
-            <div class="card-topline">
-              <span class="state-label">Frost protection</span>
-            </div>
-            <div class="temperature-block">
-              <span class="area-name">Guest Room</span>
-              <span class="current-temperature">16.8°</span>
-              <span class="target-line">Off</span>
-            </div>
+          <article class="heating-card heating-card--off" tabindex="0" aria-label="Guest Room frost protection, current temperature 16.8 degrees, humidity 46 percent, auto, windows closed">
+            <div class="card-topline"><span class="state-label">Frost protection</span></div>
+            <div class="temperature-block"><span class="area-name">Guest Room</span><span class="current-temperature">16.8°</span><span class="target-line">Off</span></div>
             <div class="card-metrics">
-              <span class="metric-chip" aria-label="Humidity 46 percent">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>
-                46%
-              </span>
-              <span class="metric-chip" aria-label="Windows closed">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>
-                Closed
-              </span>
+              <span class="metric-chip" aria-label="Humidity 46 percent"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>46%</span>
+              <span class="metric-chip end-state-glance" aria-label="Temperature follows automatic schedule">Auto</span>
+              <span class="metric-chip" aria-label="Windows closed"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>Closed</span>
             </div>
           </article>
 
-          <article class="heating-card heating-card--heating heating-card--window-open" tabindex="0" aria-label="Bathroom heating with window open, current temperature 22.1 degrees, target 23 degrees, humidity 57 percent">
-            <div class="card-topline">
-              <span class="state-label">Heating</span>
-            </div>
-            <div class="temperature-block">
-              <span class="area-name">Bathroom</span>
-              <span class="current-temperature">22.1°</span>
-              <span class="target-line">Target 23.0°</span>
-            </div>
+          <article class="heating-card heating-card--heating heating-card--window-open" tabindex="0" aria-label="Bathroom heating with window open, current temperature 22.1 degrees, target 23 degrees, humidity 57 percent, manual">
+            <div class="card-topline"><span class="state-label">Heating</span></div>
+            <div class="temperature-block"><span class="area-name">Bathroom</span><span class="current-temperature">22.1°</span><span class="target-line">Target 23.0°</span></div>
             <div class="card-metrics">
-              <span class="metric-chip" aria-label="Humidity 57 percent">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>
-                57%
-              </span>
-              <span class="metric-chip metric-chip--warning" aria-label="Window open">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 4.5h8.3l5.7 3.2v11.8H5v-15Zm2 2v11h4.5v-11H7Zm6.5.5v10.5H17V8.9L13.5 7Z" /></svg>
-                Open
-              </span>
+              <span class="metric-chip" aria-label="Humidity 57 percent"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>57%</span>
+              <span class="metric-chip end-state-glance" aria-label="Manual temperature override is active">Manual</span>
+              <span class="metric-chip metric-chip--warning" aria-label="Window open"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 4.5h8.3l5.7 3.2v11.8H5v-15Zm2 2v11h4.5v-11H7Zm6.5.5v10.5H17V8.9L13.5 7Z" /></svg>Open</span>
             </div>
           </article>
         </div>
       </section>
 
       <section class="review-section" aria-labelledby="interaction-title">
-        <div class="section-heading">
-          <p class="eyebrow">After click / tap</p>
-          <h2 id="interaction-title">Interaction surface concept</h2>
-          <p>
-            The first implementation may open the native Home Assistant more-info dialog. This static concept shows the kind of custom interaction surface that could be justified later.
-          </p>
-        </div>
-
+        <div class="section-heading"><p class="eyebrow">After click / tap</p><h2 id="interaction-title">Interaction surface concept</h2><p>The first implementation may open the native Home Assistant more-info dialog. This static concept shows the kind of custom interaction surface that could be justified later.</p></div>
         <article class="detail-surface" aria-label="Expanded interaction concept for Living Room">
-          <div class="detail-header">
-            <div>
-              <h3>Living Room</h3>
-              <p class="detail-state">Heating</p>
-            </div>
-          </div>
-
-          <div class="detail-temperature-row">
-            <div>
-              <span class="detail-label">Current</span>
-              <span class="detail-current">21.4°</span>
-            </div>
-            <div class="target-control" aria-label="Target temperature control concept">
-              <button type="button" aria-label="Decrease target temperature">−</button>
-              <span>22.0°</span>
-              <button type="button" aria-label="Increase target temperature">+</button>
-            </div>
-          </div>
-
+          <div class="detail-header"><div><h3>Living Room</h3><p class="detail-state">Heating</p></div></div>
+          <div class="detail-temperature-row"><div><span class="detail-label">Current</span><span class="detail-current">21.4°</span></div><div class="target-control" aria-label="Target temperature control concept"><button type="button" aria-label="Decrease target temperature">−</button><span>22.0°</span><button type="button" aria-label="Increase target temperature">+</button></div></div>
           <div class="detail-meta">
-            <div class="detail-metrics">
-              <span class="metric-chip" aria-label="Humidity 48 percent">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>
-                48%
-              </span>
-              <span class="metric-chip" aria-label="Windows closed">
-                <svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>
-                Closed
-              </span>
-            </div>
-
-            <div class="temperature-end-state-row" aria-label="Temperature end condition options">
-              <span class="end-state-chip end-state-chip--active">Auto</span>
-              <span class="end-state-chip">Manual</span>
-              <span class="end-state-chip">Next</span>
-              <span class="end-state-chip">Time</span>
-            </div>
+            <div class="detail-metrics"><span class="metric-chip" aria-label="Humidity 48 percent"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.2 4.9 6.6a4.1 4.1 0 1 0 4.6 0L7.2 3.2Zm9.6 0l-2.3 3.4a4.1 4.1 0 1 0 4.6 0l-2.3-3.4ZM12 11.4l-2.3 3.4a4.1 4.1 0 1 0 4.6 0L12 11.4Z" /></svg>48%</span><span class="metric-chip" aria-label="Windows closed"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5h16v15H4v-15Zm2 2v11h5v-11H6Zm7 0v11h5v-11h-5Z" /></svg>Closed</span></div>
+            <div class="temperature-end-state-row" aria-label="Temperature end condition options"><span class="end-state-chip end-state-chip--active">Auto</span><span class="end-state-chip">Manual</span><span class="end-state-chip">Next</span><span class="end-state-chip">Time</span></div>
           </div>
         </article>
       </section>
-    </main>
 
+      <section class="review-section" aria-labelledby="flow-title">
+        <div class="section-heading"><p class="eyebrow">Manual override flow</p><h2 id="flow-title">Temperature end-state behavior</h2><p>These examples visualize the proposed UX without adding documentation-only labels to the GUI surface. Changing the temperature in Auto switches to Manual. Choosing another end state keeps the selected target until that condition ends. Changing temperature while an override is active keeps the current end state. Selecting Time opens a time-selection input before Time becomes active.</p></div>
+        <div class="flow-grid" aria-label="Manual override flow examples">
+          <p class="flow-note">Initial state: the room follows Auto. The card still shows the thermostat state separately as Heating, Idle, or Off.</p>
+          <article class="flow-card" aria-label="Auto state before manual adjustment"><div class="flow-card-header"><div><h3 class="flow-card-title">Living Room</h3><p class="flow-card-state">Heating</p></div></div><div class="flow-target"><span class="flow-target-label">Target</span><div class="flow-target-control"><button type="button">−</button><span>22.0°</span><button type="button">+</button></div></div><div class="flow-end-state-row"><span class="end-state-chip end-state-chip--active">Auto</span><span class="end-state-chip">Manual</span><span class="end-state-chip">Next</span><span class="end-state-chip">Time</span></div></article>
+          <p class="flow-note">Manual change: pressing + or − while Auto is active switches the end state to Manual.</p>
+          <article class="flow-card" aria-label="Manual state after user changes target temperature"><div class="flow-card-header"><div><h3 class="flow-card-title">Living Room</h3><p class="flow-card-state">Manual · Heating</p></div></div><div class="flow-target"><span class="flow-target-label">Target</span><div class="flow-target-control"><button type="button">−</button><span>22.5°</span><button type="button">+</button></div></div><div class="flow-end-state-row"><span class="end-state-chip">Auto</span><span class="end-state-chip end-state-chip--active">Manual</span><span class="end-state-chip">Next</span><span class="end-state-chip">Time</span></div></article>
+          <p class="flow-note">Next: selecting Next keeps the current target until the next schedule change. Further +/− changes keep Next active.</p>
+          <article class="flow-card" aria-label="Next schedule end state selected"><div class="flow-card-header"><div><h3 class="flow-card-title">Living Room</h3><p class="flow-card-state">Manual · Heating · until next schedule</p></div></div><div class="flow-target"><span class="flow-target-label">Target</span><div class="flow-target-control"><button type="button">−</button><span>22.5°</span><button type="button">+</button></div></div><div class="flow-end-state-row"><span class="end-state-chip">Auto</span><span class="end-state-chip">Manual</span><span class="end-state-chip end-state-chip--active">Next</span><span class="end-state-chip">Time</span></div></article>
+          <p class="flow-note">Time: selecting Time first opens a time input. After a time is confirmed, Time becomes active and +/− changes keep Time active.</p>
+          <article class="flow-card" aria-label="Time end state after choosing an end time"><div class="flow-card-header"><div><h3 class="flow-card-title">Living Room</h3><p class="flow-card-state">Manual · Heating · until 21:30</p></div></div><div class="flow-target"><span class="flow-target-label">Target</span><div class="flow-target-control"><button type="button">−</button><span>22.5°</span><button type="button">+</button></div></div><div class="flow-end-state-row"><span class="end-state-chip">Auto</span><span class="end-state-chip">Manual</span><span class="end-state-chip">Next</span><span class="end-state-chip end-state-chip--active">Time</span></div></article>
+        </div>
+      </section>
+    </main>
     <script src="./mockup.js" type="module"></script>
   </body>
 </html>
