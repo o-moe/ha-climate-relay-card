@@ -75,9 +75,17 @@ h2 {
 }
 
 h3 {
-  margin-bottom: 0;
-  font-size: 1.5rem;
-  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.detail-state {
+  margin: 0;
+  color: rgba(23, 23, 23, 0.62);
+  font-size: 0.95rem;
+  font-weight: 750;
 }
 
 .intro,
@@ -176,6 +184,10 @@ h3 {
 .metric-chip--warning {
   border-color: var(--warning-border);
   background: var(--warning-background);
+}
+
+.metric-chip--secondary {
+  color: rgba(23, 23, 23, 0.62);
 }
 
 .metric-icon {
@@ -292,12 +304,6 @@ h3 {
   margin-top: 32px;
   color: rgba(23, 23, 23, 0.72);
   font-weight: 700;
-}
-
-.detail-meta span {
-  border-radius: 999px;
-  padding: 7px 12px;
-  background: rgba(255, 255, 255, 0.22);
 }
 
 @media (max-width: 900px) {
