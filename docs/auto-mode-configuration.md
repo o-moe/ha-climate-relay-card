@@ -104,6 +104,120 @@ sensor.living_room_auto_target
 
 External sources may be backed by Home Assistant schedules, calendars, template sensors, Node-RED, third-party scheduler integrations, or a future backend integration.
 
+## Graphical configuration UX
+
+The default configuration path for simple Auto sources must be graphical, not YAML-first.
+
+The product UX should provide a visual Auto editor with these top-level choices:
+
+```text
+Every day | Workday | External
+```
+
+### Every day editor
+
+The `Every day` editor presents one list of time/temperature rows.
+
+Example UI:
+
+```text
+Auto source
+[Every day] [Workday] [External]
+
+Every day
+06:00    21.0°
+22:00    18.0°
+
+[Add time]
+```
+
+### Workday editor
+
+The `Workday` editor presents a workday context entity and two separate schedules.
+
+Example UI:
+
+```text
+Auto source
+[Every day] [Workday] [External]
+
+Workday entity
+binary_sensor.workday
+
+Workday
+06:00    21.0°
+08:00    18.0°
+16:00    21.0°
+22:00    18.0°
+
+Non-workday
+08:00    21.0°
+23:00    18.0°
+```
+
+### External editor
+
+The `External` editor presents entity selectors for a normalized Auto target source.
+
+Example UI:
+
+```text
+Auto source
+[Every day] [Workday] [External]
+
+Target entity
+sensor.living_room_auto_target
+
+Next target
+sensor.living_room_next_target
+
+Next change
+sensor.living_room_next_change
+
+Context label
+sensor.living_room_auto_context
+```
+
+YAML remains supported as an advanced and reviewable configuration format, but it must not be the only path for simple Auto setup.
+
+## Editor entry point
+
+The interaction surface should provide a secondary action to open the Auto editor.
+
+Current UX label:
+
+```text
+Edit Auto
+```
+
+Recommended placement:
+
+```text
+Living Room                         [Edit Auto]
+Heating
+```
+
+Rationale:
+
+- The room name remains the primary heading.
+- The thermostat state remains visible as secondary information.
+- The Auto editor is discoverable without competing with daily target-temperature controls.
+- The label ties directly to the `Auto` end state and avoids implying that Away, Window, Manual, Next, or Time rules are configured there.
+
+## Home Assistant custom-card editor capability
+
+Home Assistant supports graphical custom-card editors through a custom element returned by `getConfigElement()`.
+
+Home Assistant displays that editor in the dashboard card editor and receives changes through the `config-changed` event.
+
+For simpler configuration needs, Home Assistant also supports a built-in form editor through `getConfigForm()`.
+
+Product implication:
+
+```text
+The Area Heating Card should target a custom graphical editor for the Auto schedule UX, because time/temperature row editing is richer than a simple static form.
+```
+
 ## Normalized Auto target model
 
 All Auto source levels should converge into the same normalized Auto target model.
@@ -271,6 +385,8 @@ The following topics are intentionally deferred:
 - Every day provides the lowest-friction simple schedule configuration.
 - Workday provides separate workday and non-workday schedule configuration.
 - External allows advanced users to provide a Home Assistant entity or integration-generated source.
+- Simple Auto source setup is available through a graphical UX, not only YAML.
+- The interaction surface provides an `Edit Auto` entry point.
 - All Auto source levels map to a normalized Auto target model.
 - The card frontend is not responsible for schedule execution.
 - Calendar and vacation-style logic are treated as advanced external-source concerns unless explicitly designed later.
