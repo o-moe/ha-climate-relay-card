@@ -12,6 +12,7 @@ No production implementation exists yet. The current focus is to define:
 - UX principles
 - Target screens
 - Manual override UX flow
+- Auto mode configuration
 - Card configuration model
 - HACS repository strategy
 - Quality gates
@@ -43,6 +44,7 @@ The first version must work directly with existing Home Assistant entities:
 - [UX Principles](docs/ux-principles.md)
 - [Target Screens](docs/target-screens.md)
 - [Manual Override UX Flow](docs/manual-override-ux-flow.md)
+- [Auto Mode Configuration](docs/auto-mode-configuration.md)
 - [Configuration Model](docs/configuration-model.md)
 - [HACS Repository Strategy](docs/hacs-repository-strategy.md)
 - [Quality Gates](docs/quality-gates.md)
