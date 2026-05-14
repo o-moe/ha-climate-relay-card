@@ -242,6 +242,23 @@ h3 {
   margin-bottom: 36px;
 }
 
+.auto-editor-button {
+  min-height: 34px;
+  border: 1px solid rgba(23, 23, 23, 0.14);
+  border-radius: 999px;
+  padding: 7px 13px;
+  background: rgba(255, 255, 255, 0.28);
+  color: rgba(23, 23, 23, 0.72);
+  font-size: 0.8rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.auto-editor-button:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.42);
+  outline-offset: 3px;
+}
+
 .detail-temperature-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -421,9 +438,145 @@ h3 {
   justify-content: flex-end;
 }
 
+.auto-config-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.config-panel {
+  border: 1px solid var(--surface-border);
+  border-radius: 32px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: var(--shadow-soft);
+}
+
+.config-panel h3 {
+  margin-bottom: 8px;
+  font-size: 1.45rem;
+}
+
+.config-panel-description {
+  margin-bottom: 18px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.source-segment {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(23, 23, 23, 0.07);
+}
+
+.source-option {
+  min-height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  color: rgba(23, 23, 23, 0.56);
+  font-size: 0.78rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.source-option--active {
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--text-primary);
+  box-shadow: 0 8px 22px rgba(15, 15, 15, 0.08);
+}
+
+.schedule-list {
+  display: grid;
+  gap: 9px;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 18px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.45);
+  font-weight: 800;
+}
+
+.schedule-time {
+  color: rgba(23, 23, 23, 0.72);
+}
+
+.schedule-temp {
+  font-size: 1.1rem;
+}
+
+.config-action {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 12px;
+  border: 1px dashed rgba(23, 23, 23, 0.28);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.22);
+  color: rgba(23, 23, 23, 0.72);
+  font-weight: 850;
+}
+
+.schedule-group + .schedule-group {
+  margin-top: 18px;
+}
+
+.schedule-group-title {
+  margin: 0 0 8px;
+  color: rgba(23, 23, 23, 0.68);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.entity-field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.entity-field label {
+  color: rgba(23, 23, 23, 0.62);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.entity-pill {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(23, 23, 23, 0.1);
+  border-radius: 18px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.45);
+  color: rgba(23, 23, 23, 0.78);
+  font-size: 0.9rem;
+  font-weight: 760;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .card-grid,
-  .flow-grid {
+  .flow-grid,
+  .auto-config-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -436,6 +589,7 @@ h3 {
 
   .card-grid,
   .flow-grid,
+  .auto-config-grid,
   .detail-temperature-row {
     grid-template-columns: 1fr;
   }
